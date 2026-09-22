@@ -1,3 +1,39 @@
+const btnLeer = document.getElementById('btnLeer');
+const articulo = document.querySelector('.pregunta');
+
+btnLeer.addEventListener('click', () => {
+  // Si ya está leyendo, lo detenemos (funciona como toggle)
+  if (speechSynthesis.speaking) {
+    speechSynthesis.cancel();
+    btnLeer.textContent = '🔊 Leer pregunta';
+    return;
+  }
+
+  // Armamos el texto uniendo título + párrafo + cada punto de la lista
+  const titulo = articulo.querySelector('.titulo').textContent;
+  const parrafo = articulo.querySelector('.parrafo').textContent;
+  const puntos = [...articulo.querySelectorAll('.lista li')]
+    .map((li, i) => `Punto ${i + 1}: ${li.textContent}`)
+    .join('. ');
+
+  const textoCompleto = `${titulo}. ${parrafo}. ${puntos}`;
+
+  const utterance = new SpeechSynthesisUtterance(textoCompleto);
+  utterance.lang = 'es-MX';
+  utterance.rate = 1;
+
+  // Cuando termine de leer, el botón vuelve a su texto original
+  utterance.onend = () => {
+    btnLeer.textContent = '🔊 Leer pregunta';
+  };
+
+  speechSynthesis.speak(utterance);
+  btnLeer.textContent = '⏸️ Detener';
+});
+
+
+
+
 const tarjetas = document.querySelectorAll('#card-posicion span');
 
 const filas = [
