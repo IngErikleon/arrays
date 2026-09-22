@@ -267,20 +267,27 @@ body {
   padding: 0 2px;
 }/*hasta a qui*/
 
-/* --- CARD ALGORITMO: solo colores --- */
-.card-algoritmo {
-  background-color: #f3e8ff;                    /* ✅ lila suave */
-  border: 2px solid #9b59b6;                    /* ✅ borde morado */
+
+/* ============================================ */
+/* CARD ALGORITMO (nuevo semántico)             */
+/* ============================================ */
+.algoritmo {
+  background-color: #f3e8ff;                    /* lila suave */
+  border: 2px solid #9b59b6;                    /* borde morado */
   border-radius: 12px;
   padding: 20px;
   margin-top: 25px;
   margin-bottom: 25px;
-  box-shadow: 0 4px 8px rgba(155, 89, 182, 0.2); /* ✅ sombra morada suave */
-  /* ⚠️ NO toco ancho ni display: eso lo dejas como lo tienes */
+  box-shadow: 0 4px 8px rgba(155, 89, 182, 0.2);
+  width: 100%;                                  /* ✅ ocupa el ancho */
+  max-width: 800px;                             /* ✅ igual que las otras cards */
+  box-sizing: border-box;
+  font-family: "Comic Neue", system-ui;
+  font-size: 14px;
 }
 
 /* Bloque de código (vista) */
-.card-algoritmo .vista {
+.algoritmo .vista {
   background-color: #ffffff;
   border-left: 4px solid #9b59b6;
   padding: 15px;
@@ -290,15 +297,15 @@ body {
   color: #333;
 }
 
-.card-algoritmo .vista p {
+.algoritmo .vista p {
   margin: 5px 0;
 }
 
-/* Título */
-.card-algoritmo .titulo-algoritmo {
+/* Título del algoritmo */
+.algoritmo .algoritmoTitulo {
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
-  color: #6b21a8;                                /* ✅ morado oscuro */
+  color: #6b21a8;                               /* morado oscuro */
   font-size: 16px;
   margin-top: 20px;
   margin-bottom: 10px;
@@ -306,7 +313,7 @@ body {
 }
 
 /* Subvista (Definir variables) */
-.card-algoritmo .subvista {
+.algoritmo .vistasub {
   background-color: #ffffff;
   border-left: 4px solid #9b59b6;
   padding: 15px;
@@ -316,6 +323,6 @@ body {
   color: #333;
 }
 
-.card-algoritmo .subvista p {
+.algoritmo .vistasub p {
   margin: 0;
 }
