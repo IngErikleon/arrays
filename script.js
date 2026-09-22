@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-    // ===== COMENTARIOS: se actualizan mientras el maestro va escribiendo =====
+  // ===== COMENTARIOS: se actualizan mientras el maestro va escribiendo =====
   const inputsNac = document.querySelectorAll('#fecha-nacimiento .digito');
   const inputsHoy = document.querySelectorAll('#fecha-hoy .digito');
 
@@ -130,10 +130,94 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // ===== CALCULAR EDAD: usa armarTexto() para tomar fecha nac. y fecha actual =====
+  const resultadoEdad = document.getElementById('resultado-edad');
+
+  function actualizarEdad() {
+    if (!inputsNac.length || !inputsHoy.length) return;
+
+    const nac = armarTexto(inputsNac);
+    const hoy = armarTexto(inputsHoy);
+
+    // Solo calculamos si ambas fechas están completas (sin "?")
+    const nacCompleta = !nac.dia.includes('?') && !nac.mes.includes('?') && !nac.anio.includes('?');
+    const hoyCompleta = !hoy.dia.includes('?') && !hoy.mes.includes('?') && !hoy.anio.includes('?');
+
+    if (nacCompleta && hoyCompleta && resultadoEdad) {
+      // Aquí concatenamos día-mes-año en el formato "DD-MM-AAAA"
+      const fechaNacStr = `${nac.dia}-${nac.mes}-${nac.anio}`;
+      const fechaHoyStr = `${hoy.dia}-${hoy.mes}-${hoy.anio}`;
+
+      resultadoEdad.textContent = calcularEdad(fechaNacStr, fechaHoyStr);
+    } else if (resultadoEdad) {
+      resultadoEdad.textContent = '';
+    }
+  }
+
   [...inputsNac, ...inputsHoy].forEach(input => {
-    input.addEventListener('input', actualizarComentarios);
-    input.addEventListener('keydown', actualizarComentarios);
+    input.addEventListener('input', () => {
+      actualizarComentarios();
+      actualizarEdad();
+    });
+    input.addEventListener('keydown', () => {
+      actualizarComentarios();
+      actualizarEdad();
+    });
   });
 
   actualizarComentarios();
-  });
+  actualizarEdad();
+
+});
+
+// ===== FUNCIÓN DE CÁLCULO DE EDAD (independiente, no toca el DOM) =====
+function calcularEdad(fechaNacimientoStr, fechaActualStr) {
+    const diaNac = parseInt(fechaNacimientoStr.substring(0, 2));
+    const mesNac = parseInt(fechaNacimientoStr.substring(3, 5));
+    const anioNac = parseInt(fechaNacimientoStr.substring(6, 10));
+
+    let fechaValida = true;
+
+    if (mesNac < 1 || mesNac > 12) {
+        fechaValida = false;
+    }
+
+    if (anioNac <= 1900) {
+        fechaValida = false;
+    }
+
+    if (fechaValida) {
+        let diasEnMes;
+        switch (mesNac) {
+            case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+                diasEnMes = 31;
+                break;
+            case 4: case 6: case 9: case 11:
+                diasEnMes = 30;
+                break;
+            case 2:
+                diasEnMes = 28;
+                break;
+        }
+
+        if (diaNac < 1 || diaNac > diasEnMes) {
+            fechaValida = false;
+        }
+    }
+
+    if (!fechaValida) {
+        return "Fecha de nacimiento inválida.";
+    }
+
+    const diaAct = parseInt(fechaActualStr.substring(0, 2));
+    const mesAct = parseInt(fechaActualStr.substring(3, 5));
+    const anioAct = parseInt(fechaActualStr.substring(6, 10));
+
+    let edad = anioAct - anioNac;
+
+    if (mesAct < mesNac || (mesAct === mesNac && diaAct < diaNac)) {
+        edad = edad - 1;
+    }
+
+    return "Tu Edad es: " + edad + " años";
+}
