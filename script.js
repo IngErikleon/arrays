@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.warn('No se encontró #btnLeer o .pregunta en el HTML');
   }
 
-  // ===== TU CÓDIGO DE LOS INPUTS DE FECHA =====
+  // ===== INPUTS DE FECHA → TARJETAS DE POSICIÓN =====
   const tarjetas = document.querySelectorAll('#card-posicion span');
 
   const filas = [
@@ -85,4 +85,55 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-});
+    // ===== COMENTARIOS: se actualizan mientras el maestro va escribiendo =====
+  const inputsNac = document.querySelectorAll('#fecha-nacimiento .digito');
+  const inputsHoy = document.querySelectorAll('#fecha-hoy .digito');
+
+  const comDia  = document.getElementById('com-dia');
+  const comMes  = document.getElementById('com-mes');
+  const comAnio = document.getElementById('com-anio');
+
+  const comDiaHoy  = document.getElementById('com-dia-hoy');
+  const comMesHoy  = document.getElementById('com-mes-hoy');
+  const comAnioHoy = document.getElementById('com-anio-hoy');
+
+  function armarTexto(inputs) {
+    const d1 = inputs[0]?.value || '';
+    const d2 = inputs[1]?.value || '';
+    const m1 = inputs[2]?.value || '';
+    const m2 = inputs[3]?.value || '';
+    const a1 = inputs[4]?.value || '';
+    const a2 = inputs[5]?.value || '';
+    const a3 = inputs[6]?.value || '';
+    const a4 = inputs[7]?.value || '';
+
+    const dia  = (d1 && d2) ? `${d1}${d2}` : (d1 ? `${d1}?` : '??');
+    const mes  = (m1 && m2) ? `${m1}${m2}` : (m1 ? `${m1}?` : '??');
+    const anio = `${a1}${a2}${a3}${a4}`.padEnd(4, '?');
+
+    return { dia, mes, anio };
+  }
+
+  function actualizarComentarios() {
+    if (inputsNac.length) {
+      const { dia, mes, anio } = armarTexto(inputsNac);
+      if (comDia)  comDia.textContent  = `"${dia}"`;
+      if (comMes)  comMes.textContent  = `"${mes}"`;
+      if (comAnio) comAnio.textContent = `"${anio}"`;
+    }
+
+    if (inputsHoy.length) {
+      const { dia, mes, anio } = armarTexto(inputsHoy);
+      if (comDiaHoy)  comDiaHoy.textContent  = `"${dia}"`;
+      if (comMesHoy)  comMesHoy.textContent  = `"${mes}"`;
+      if (comAnioHoy) comAnioHoy.textContent = `"${anio}"`;
+    }
+  }
+
+  [...inputsNac, ...inputsHoy].forEach(input => {
+    input.addEventListener('input', actualizarComentarios);
+    input.addEventListener('keydown', actualizarComentarios);
+  });
+
+  actualizarComentarios();
+  });
