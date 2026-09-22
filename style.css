@@ -266,3 +266,48 @@ body {
   font-size: 14px;
   padding: 0 2px;
 }/*hasta a qui*/
+/* ============================================ */
+/* CARD DEL ALGORITMO (nuevo, no toca lo demás) */
+/* ============================================ */
+.card-algoritmo {
+  background: #F9F6F0;
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 800px;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-size: 14px;
+  font-family: "Comic Neue", system-ui;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.card-algoritmo .vista,
+.card-algoritmo .subvista {
+  background: rgba(255, 255, 255, 0.5);
+  padding: 12px 15px;
+  border-radius: 10px;
+  border-left: 3px solid #2a9d8f;
+}
+
+.card-algoritmo .vista p,
+.card-algoritmo .subvista p {
+  margin: 4px 0;
+  font-size: 13px;
+  font-family: "Courier New", monospace;
+  text-align: left;
+  color: #1a1a1a;
+}
+
+.card-algoritmo .titulo-algoritmo {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 700;
+  color: #2a9d8f;
+  margin: 5px 0;
+  padding: 8px;
+  background: #d1e7dd;
+  border-radius: 8px;
+}/*final ultimo*/
