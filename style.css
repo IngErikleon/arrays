@@ -17,6 +17,7 @@ body {
   font-family: "Comic Neue", system-ui;
 }
 
+/* ============ PREGUNTA ============ */
 .pregunta {
   background: #D6CFC4;
   padding: 30px;
@@ -42,7 +43,7 @@ body {
   padding-left: 20px;
 }
 
-/* ✅ Contenedor del badge: mismo ancho que las tarjetas */
+/* ============ BADGE ============ */
 .contenedor-badge {
   max-width: 800px;
   width: 100%;
@@ -60,6 +61,7 @@ body {
   border-radius: 999px;
 }
 
+/* ============ SOLUCIÓN ============ */
 .solucion {
   background: #F9F6F0;
   padding: 30px;
@@ -74,160 +76,43 @@ body {
   text-align: justify;
 }
 
+/* ============ CARD POSICIÓN (1-10) ============ */
 .card {
   display: flex;
-  gap: 6px;                    /* separación entre tarjetas */
+  align-items: center;
+  gap: 6px;
   width: fit-content;
   font-family: "Comic Neue", system-ui;
   font-size: 11px;
 }
-.fila-posicion {
-  display: flex;
-  align-items: center;    /* ✅ centra verticalmente */
-  gap: 10px;
-  flex-wrap: wrap;
-}
 
-.posicion {
-  font-size: 12px;
-  font-weight: 700;
-  color: #2a9d8f;
-  margin: 0;              /* ✅ CLAVE: quita el margen por defecto del <p> */
-  line-height: 1;         /* ✅ para que no se desplace */
-  white-space: nowrap;
-}
 .card span {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 28px;                 /* ancho de cada tarjeta */
-  height: 28px;                /* alto de cada tarjeta */
-  background: #d1e7dd;         /* ✅ verde suave en cada tarjeta */
-  border: 1px solid #2a9d8f;   /* borde verde */
-  border-radius: 6px;          /* esquinas redondeadas */
-  font-weight: 700;
-  color: #1a1a1a;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.08);  /* sombra suave */
-}
-.fecha {
-  display: flex;
-  align-items: center;
-  gap: 6px;                    /* separación entre números */
-  width: fit-content;
-  font-family: "Comic Neue", system-ui;
-  font-size: 11px;
-  margin-top: 10px;            /* separa de las tarjetas de arriba */
-}
-
-.fecha span {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 28px;
   height: 28px;
-  background: transparent;     /* ✅ SIN fondo */
-  border: none;                /* ✅ SIN borde */
-  box-shadow: none;            /* ✅ SIN sombra */
-  font-weight: 700;
-  color: #1a1a1a;
-}
-/* --- NUEVA CARD CON COLOR DIFERENTE --- */
-.card-algoritmo {
-    background-color: #f3e8ff; /* Fondo lila suave (diferente al crema de las otras) */
-    border: 2px solid #9b59b6; /* Borde morado */
-    border-radius: 12px;
-    padding: 20px;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    box-shadow: 0 4px 8px rgba(155, 89, 182, 0.2); /* Sombra morada suave */
-}
-
-/* Estilo para el bloque de código (Vista) */
-.card-algoritmo .vista {
-    background-color: #ffffff;
-    border-left: 4px solid #9b59b6;
-    padding: 15px;
-    border-radius: 8px;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 14px;
-    color: #333;
-}
-
-.card-algoritmo .vista p {
-    margin: 5px 0; /* Espacio entre líneas de código */
-}
-
-/* Título del algoritmo */
-.card-algoritmo .titulo-algoritmo {
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: bold;
-    color: #6b21a8; /* Morado oscuro */
-    font-size: 16px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-/* Subvista (Definir variables) */
-.card-algoritmo .subvista {
-    background-color: #ffffff;
-    border-left: 4px solid #9b59b6;
-    padding: 15px;
-    border-radius: 8px;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 14px;
-    color: #333;
-}
-
-.card-algoritmo .subvista p {
-    margin: 0;
-}
-.posicion {
-  font-size: 16px;
-  font-weight: 700;
-  color: #2a9d8f;
-  margin: 0;
-  line-height: 1;
-  white-space: nowrap;
-  margin-right: 6px;           /* separa "Ejemplo:" de los números */
-}/*Inicio*/
-.datos{
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-family: "Comic Neue", system-ui;
-  font-size: 11px;
-  margin-top: 10px;
-}
-
-.datos span {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 26px;
-  height: 26px;
   background: #d1e7dd;
   border: 1px solid #2a9d8f;
   border-radius: 6px;
   font-weight: 700;
   color: #1a1a1a;
-  transition: background 0.3s, border-color 0.3s, color 0.3s; /* ✅ animación */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  transition: background 0.3s, border-color 0.3s, color 0.3s;
 }
 
-/* ✅ Clase que se agrega cuando el dígito está escrito */
-.datos span.azul {
-  background: #d0e7ff;         /* azul bajito */
+.card span.azul {
+  background: #d0e7ff;
   border-color: #3b82f6;
   color: #1e3a8a;
 }
 
-.fecha {
+/* ============ FILA POSICIÓN ============ */
+.fila-posicion {
   display: flex;
   align-items: center;
-  gap: 6px;
-  font-family: "Comic Neue", system-ui;
-  font-size: 11px;
-  margin-top: 10px;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .posicion {
@@ -238,6 +123,17 @@ body {
   line-height: 1.2;
   white-space: nowrap;
   min-width: 100px;
+}
+
+/* ============ FECHA (inputs) ============ */
+.fecha {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  font-family: "Comic Neue", system-ui;
+  font-size: 11px;
+  margin-top: 10px;
 }
 
 .fecha .digito {
@@ -265,28 +161,24 @@ body {
   font-weight: 700;
   font-size: 14px;
   padding: 0 2px;
-}/*hasta a qui*/
+}
 
-
-/* ============================================ */
-/* CARD ALGORITMO (nuevo semántico)             */
-/* ============================================ */
+/* ============ CARD ALGORITMO ============ */
 .algoritmo {
-  background-color: #f3e8ff;                    /* lila suave */
-  border: 2px solid #9b59b6;                    /* borde morado */
+  background-color: #f3e8ff;
+  border: 2px solid #9b59b6;
   border-radius: 12px;
   padding: 20px;
   margin-top: 25px;
   margin-bottom: 25px;
   box-shadow: 0 4px 8px rgba(155, 89, 182, 0.2);
-  width: 100%;                                  /* ✅ ocupa el ancho */
-  max-width: 800px;                             /* ✅ igual que las otras cards */
+  width: 100%;
+  max-width: 800px;
   box-sizing: border-box;
   font-family: "Comic Neue", system-ui;
   font-size: 14px;
 }
 
-/* Bloque de código (vista) */
 .algoritmo .vista {
   background-color: #ffffff;
   border-left: 4px solid #9b59b6;
@@ -301,18 +193,16 @@ body {
   margin: 5px 0;
 }
 
-/* Título del algoritmo */
 .algoritmo .algoritmoTitulo {
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
-  color: #6b21a8;                               /* morado oscuro */
+  color: #6b21a8;
   font-size: 16px;
   margin-top: 20px;
   margin-bottom: 10px;
   text-align: center;
 }
 
-/* Subvista (Definir variables) */
 .algoritmo .vistasub {
   background-color: #ffffff;
   border-left: 4px solid #9b59b6;
