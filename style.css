@@ -43,7 +43,7 @@ body {
   padding-left: 20px;
 }
 
-/* ============ BADGE ============ */
+/* ============ BADGE (SOLUCIÓN / INGRESA DATOS) ============ */
 .contenedor-badge {
   max-width: 800px;
   width: 100%;
@@ -76,7 +76,7 @@ body {
   text-align: justify;
 }
 
-/* ============ CARD POSICIÓN (1-10) ============ */
+/* ============ CARD DE POSICIÓN (1-10) ============ */
 .card {
   display: flex;
   align-items: center;
@@ -125,7 +125,7 @@ body {
   min-width: 100px;
 }
 
-/* ============ FECHA (inputs) ============ */
+/* ============ FECHA (INPUTS) ============ */
 .fecha {
   display: flex;
   align-items: center;
@@ -154,6 +154,12 @@ body {
 .fecha .digito:focus {
   border-color: #3b82f6;
   box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25);
+}
+
+.fecha .digito::placeholder {
+  color: #b0b0b0;
+  font-weight: 400;
+  font-size: 11px;
 }
 
 .fecha .guion {
@@ -191,6 +197,14 @@ body {
 
 .algoritmo .vista p {
   margin: 5px 0;
+}
+
+.algoritmo .vista span {
+  color: #6b21a8;
+  font-weight: 700;
+  background: #f3e8ff;
+  padding: 1px 5px;
+  border-radius: 4px;
 }
 
 .algoritmo .algoritmoTitulo {
