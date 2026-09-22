@@ -267,49 +267,55 @@ body {
   padding: 0 2px;
 }/*hasta a qui*/
 
-/* ============================================ */
-/* CARD DEL ALGORITMO */
-/* ============================================ */
+/* --- CARD ALGORITMO: solo colores --- */
 .card-algoritmo {
-  background: #e9d5ff !important;      /* ✅ color lila/morado suave (ajústalo) */
-  padding: 30px !important;
-  border-radius: 20px !important;
-  max-width: 800px !important;
-  width: 100% !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
-  font-size: 14px;
-  font-family: "Comic Neue", system-ui;
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  box-sizing: border-box;
+  background-color: #f3e8ff;                    /* ✅ lila suave */
+  border: 2px solid #9b59b6;                    /* ✅ borde morado */
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 8px rgba(155, 89, 182, 0.2); /* ✅ sombra morada suave */
+  /* ⚠️ NO toco ancho ni display: eso lo dejas como lo tienes */
 }
 
-.card-algoritmo .vista,
-.card-algoritmo .subvista {
-  background: rgba(255, 255, 255, 0.5);
-  padding: 12px 15px;
-  border-radius: 10px;
-  border-left: 3px solid #8b5cf6;      /* ✅ línea morada */
-}
-
-.card-algoritmo .vista p,
-.card-algoritmo .subvista p {
-  margin: 4px 0;
-  font-size: 13px;
-  font-family: "Courier New", monospace;
-  text-align: left;
-  color: #1a1a1a;
-}
-
-.card-algoritmo .titulo-algoritmo {
-  text-align: center;
-  font-size: 15px;
-  font-weight: 700;
-  color: #7c3aed;                       /* ✅ texto morado */
-  margin: 5px 0;
-  padding: 8px;
-  background: #f3e8ff;                  /* ✅ fondo lila claro */
+/* Bloque de código (vista) */
+.card-algoritmo .vista {
+  background-color: #ffffff;
+  border-left: 4px solid #9b59b6;
+  padding: 15px;
   border-radius: 8px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  color: #333;
+}
+
+.card-algoritmo .vista p {
+  margin: 5px 0;
+}
+
+/* Título */
+.card-algoritmo .titulo-algoritmo {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  color: #6b21a8;                                /* ✅ morado oscuro */
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Subvista (Definir variables) */
+.card-algoritmo .subvista {
+  background-color: #ffffff;
+  border-left: 4px solid #9b59b6;
+  padding: 15px;
+  border-radius: 8px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  color: #333;
+}
+
+.card-algoritmo .subvista p {
+  margin: 0;
 }
