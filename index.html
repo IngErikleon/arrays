@@ -221,9 +221,65 @@
       <p>&nbsp;&nbsp;&nbsp;Si diaNac&lt;1 O diaNac> diasenMes  &nbsp;&nbsp; Entonces</p>
       <p>&nbsp;&nbsp;&nbsp;&nbsp;fechaValida &lt;-Falso</p>
       <p>&nbsp;&nbsp;&nbsp;FinSi  &nbsp;&nbsp; </p>
+        <p style="color:blue;">//Si no es valida terminamos aquí</p>    
+      <p style="color:blue;">&nbsp;&nbsp;&nbsp;SiNo  &nbsp;&nbsp; Entonces <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Escribir "Fecha de Nacimiento inválida"</p>
+      <p style="color:blue;">&nbsp;&nbsp;&nbsp;SiNo  &nbsp;&nbsp;</p>
+      
+      
     </div>
+    
   </article>
+    <div class="contenedor-badge">
+      <span class="bage">AHORA LE TOCA EL PROCESO A FECHA ACTUAL</span>
+    </div>
 
+    <article class="solucion">
+    <!-- Nueva Card de Algoritmo (Color diferente) -->
+<div class="card-algoritmo">
+   <p class="titulo-algoritmo">Fecha Actual en Pseudocodigo</p> 
+  <div class="vista">
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Escribir "Ingresa la fecha actual &nbsp;&nbsp;&nbsp;&nbsp;(DD-MM-AAAA)"</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Leer fechaActual</p>
+      
+    </div>
+    
+    <p class="titulo-algoritmo">Implementando "for" en pseudocodigo</p>
+    
+    <div class="subvista">
+       <p>//Extraer dia (posiciones 1 a 2)</p>
+      <p>textoDia &lt;- " "<br>Para i &lt; - 1 Hasta 2 Con Paso 1 Hacer <br> textoDia &lt;-textoDia + Sudcadena(fechaNacimiento, i) <br>FinPara</p><br>
+       <p>//Extraer mes (posiciones 4 a 5)</p>
+      <p>textoMes &lt;- " "<br>Para i &lt; - 4 Hasta 5 Con Paso 1 Hacer <br> textoMes &lt;-textoMes + Sudcadena(fechaNacimiento, i) <br>FinPara</p><br>
+      <p>//Extraer mes (posiciones 7 a 10)</p>
+      <p>textoAño &lt;- " "<br>Para i &lt; - 7 Hasta 10 Con Paso 1 Hacer <br> textoAño &lt;-textoAño + Sudcadena(fechaNacimiento, i) <br>FinPara</p><br>
+      
+    </div>
+<p class="titulo-algoritmo">Convertir Texto a Numero</p>
+    
+    <div class="subvista">
+       <p>diaAct &lt;- ConvertirANumero(textoDia)</p>
+      <p>mesAct &lt;- ConvertirANumero(textoMes)</p>
+      <p>añoAct &lt;- ConvertirANumero(textoAño)</p>
+      
+    </div>
+
+  <p class="titulo-algoritmo">Por fin sacamos  la edad</p>
+    
+    <div class="subvista">
+       <p style="font-size: 18px; color:blue;">edad &lt;- añoAct - añoNac</p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+      
+    </div><br>
+
+
+<p class="texto-solucion  style="font-size:20px;">
+       Entonces tu Edad es:
+      </p><br>
+  <p id="resultado-edad" class="texto-slucion" style="font-size:20px;"></p><br>
+</div>
+    
+    </article>
     <script src="./script.js"></script>
   </body>
 </html>
