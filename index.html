@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Pen</title>
+  </head>
+  <body>
+    <article class="pregunta">
+      <h3 class="titulo">Calcular la Edad</h3>
+
+      <p class="parrafo">
+        Trabajas en una compañía que ofrece seguros de vida y de gastos médicos.
+        La empresa está desarrollando una herramienta tecnológica, para que los
+        agentes puedan calcular el monto de una póliza. Para dicho cálculo se
+        consideran varios factores de riesgos, entre los que se encuentran la
+        edad. Por ello, el contratante debe llenar un formulario, incluyendo su
+        fecha de nacimiento. Como primer reto, deberás calcular la edad del
+        cliente al momento de la cotización.
+      </p>
+
+      <ol class="lista">
+        <li>La captura de la fecha de nacimiento debe ser en una sola cadena de texto con formato DD-MM-AAAA.</li>
+        <li>Debes validar que es una fecha válida; para simplificar el algoritmo tomaremos el día 29 de febrero como inválido.</li>
+        <li>El año de nacimiento debe ser mayor a 1900.</li>
+      </ol>
+    </article>
+
+    
+    <div class="contenedor-badge">
+      <span class="bage">SOLUCIÓN</span>
+    </div>
+
+    <article class="solucion">
+      <p class="texto-solucion">
+        Como el formato es fijo (siempre son 10 caracteres: 2 dias + guion + 2 meses + guion + 4 años )
+      </p><br>
+     <div class="card">
+       <p class="posicion">posición:</p>
+  <span>1</span>
+  <span>2</span>
+  <span>3</span>
+  <span>4</span>
+  <span>5</span>
+  <span>6</span>
+  <span>7</span>
+  <span>8</span>
+  <span>9</span>
+  <span>10</span>
+</div><br>
+      <div class="fecha">
+       <p class="posicion">Ejemplo:</p>
+  <span>2</span>
+  <span>5</span>
+  <span>-</span>
+  <span>1</span>
+  <span>2</span>
+  <span>-</span>
+  <span>1</span>
+  <span>9</span>
+  <span>9</span>
+  <span>8</span>
+</div>
+      <div class="fecha">
+       <p class="posicion">Fecha__:</p>
+  <span>2</span>
+  <span>2</span>
+  <span>-</span>
+  <span>0</span>
+  <span>9</span>
+  <span>-</span>
+  <span>2</span>
+  <span>0</span>
+  <span>2</span>
+  <span>6</span>
+</div>
+    <!-- Nueva Card de Algoritmo (Color diferente) -->
+<div class="card-algoritmo">
+    <div class="vista">
+        <p>dia &lt;- SubCadena(fecha, 1, 2) &nbsp;&nbsp; // "25"</p>
+        <p>mes &lt;- SubCadena(fecha, 4, 5) &nbsp;&nbsp; // "12"</p>
+        <p>año &lt;- SubCadena(fecha, 7, 10) &nbsp; // "1998"</p>
+    </div>
+    
+    <p class="titulo-algoritmo">Algoritmo CalculadorEdad</p>
+    
+    <div class="subvista">
+        <p>Definir fechaNacimiento, fechaActual Como Cadena</p>
+      <p>Definir diaNac, mesNac, añoNac Como Entero</p>
+      <p>Definir diasEnMes Como Entero</p>
+      <p>Definir edad Como Entero</p>
+      <p>Definir fechaValidad Como Logico</p>
+    </div>
+  
+</div>
+      <p>Miremos un ejemplo real</p>
+  <div style="text-align: center; margin-bottom: -10px;">
+    <img src="https://images.emojiterra.com/google/noto-emoji/animated-emoji/1f447-1f3fc.gif" alt="Apuntando hacia abajo" style="width: 80px; height: auto;">
+</div>
+    </article>
+    <div class="contenedor-badge">
+      <span class="bage">INGRESA DATOS</span>
+    </div>
+<article class="solucion">
+  <p class="texto-solucion">
+   Paso 1.-Capturar la fecha de nacimiento, fecha actual en una cadena.<br>Escribir tu fecha de nacimiento (DD-MM-AAAA)
+  </p>
+
+  <!-- ✅ Le ponemos ID a ESTA fila de tarjetas para diferenciarla -->
+  <div class="datos" id="card-posicion">
+    <p class="posicion">Posición:</p>
+    <span>1</span>
+    <span>2</span>
+    <span>3</span>
+    <span>4</span>
+    <span>5</span>
+    <span>6</span>
+    <span>7</span>
+    <span>8</span>
+    <span>9</span>
+    <span>10</span>
+  </div>
+
+  <!-- Fecha de nacimiento -->
+  <div class="fecha" id="fecha-nacimiento">
+    <p class="posicion">Ingresa tu<br>Fecha de nacimiento:</p>
+    <input type="text" maxlength="1" class="digito" inputmode="numeric">
+    <input type="text" maxlength="1" class="digito" inputmode="numeric">
+    <span class="guion">-</span>
+    <input type="text" maxlength="1" class="digito" inputmode="numeric">
+    <input type="text" maxlength="1" class="digito" inputmode="numeric">
+    <span class="guion">-</span>
+    <input type="text" maxlength="1" class="digito" inputmode="numeric">
+    <input type="text" maxlength="1" class="digito" inputmode="numeric">
+    <input type="text" maxlength="1" class="digito" inputmode="numeric">
+    <input type="text" maxlength="1" class="digito" inputmode="numeric">
+  </div>
+
+  <!-- Fecha de hoy -->
+  <div class="fecha" id="fecha-hoy">
+    <p class="posicion">Ingresa la fecha<br>de hoy:</p>
+    <input type="text" maxlength="1" class="digito" inputmode="numeric">
+    <input type="text" maxlength="1" class="digito" inputmode="numeric">
+    <span class="guion">-</span>
+    <input type="text" maxlength="1" class="digito" inputmode="numeric">
+    <input type="text" maxlength="1" class="digito" inputmode="numeric">
+    <span class="guion">-</span>
+    <input type="text" maxlength="1" class="digito" inputmode="numeric">
+    <input type="text" maxlength="1" class="digito" inputmode="numeric">
+    <input type="text" maxlength="1" class="digito" inputmode="numeric">
+    <input type="text" maxlength="1" class="digito" inputmode="numeric">
+  </div>
+</article>
+    <script src="./script.js"></script>
+  </body>
+</html>
