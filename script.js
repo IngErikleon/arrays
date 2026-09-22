@@ -1,84 +1,88 @@
-const btnLeer = document.getElementById('btnLeer');
-const articulo = document.querySelector('.pregunta');
+document.addEventListener('DOMContentLoaded', () => {
 
-btnLeer.addEventListener('click', () => {
-  // Si ya está leyendo, lo detenemos (funciona como toggle)
-  if (speechSynthesis.speaking) {
-    speechSynthesis.cancel();
-    btnLeer.textContent = '🔊 Leer pregunta';
-    return;
-  }
+  // ===== BOTÓN DE LECTURA =====
+  const btnLeer = document.getElementById('btnLeer');
+  const articulo = document.querySelector('.pregunta');
 
-  // Armamos el texto uniendo título + párrafo + cada punto de la lista
-  const titulo = articulo.querySelector('.titulo').textContent;
-  const parrafo = articulo.querySelector('.parrafo').textContent;
-  const puntos = [...articulo.querySelectorAll('.lista li')]
-    .map((li, i) => `Punto ${i + 1}: ${li.textContent}`)
-    .join('. ');
+  if (btnLeer && articulo) {
+    btnLeer.addEventListener('click', () => {
+      if (speechSynthesis.speaking) {
+        speechSynthesis.cancel();
+        btnLeer.textContent = '🔊 Leer pregunta';
+        return;
+      }
 
-  const textoCompleto = `${titulo}. ${parrafo}. ${puntos}`;
+      const titulo = articulo.querySelector('.titulo')?.textContent || '';
+      const parrafo = articulo.querySelector('.parrafo')?.textContent || '';
+      const puntos = [...articulo.querySelectorAll('.lista li')]
+        .map((li, i) => `Punto ${i + 1}: ${li.textContent}`)
+        .join('. ');
 
-  const utterance = new SpeechSynthesisUtterance(textoCompleto);
-  utterance.lang = 'es-MX';
-  utterance.rate = 1;
+      const textoCompleto = `${titulo}. ${parrafo}. ${puntos}`;
 
-  // Cuando termine de leer, el botón vuelve a su texto original
-  utterance.onend = () => {
-    btnLeer.textContent = '🔊 Leer pregunta';
-  };
+      const utterance = new SpeechSynthesisUtterance(textoCompleto);
+      utterance.lang = 'es-MX';
+      utterance.rate = 1;
 
-  speechSynthesis.speak(utterance);
-  btnLeer.textContent = '⏸️ Detener';
-});
+      utterance.onend = () => {
+        btnLeer.textContent = '🔊 Leer pregunta';
+      };
 
-
-
-
-const tarjetas = document.querySelectorAll('#card-posicion span');
-
-const filas = [
-  document.querySelectorAll('#fecha-nacimiento .digito'),
-  document.querySelectorAll('#fecha-hoy .digito')
-];
-
-// ✅ Mapea cada input (0 a 7) a su tarjeta real (saltándose los guiones)
-const mapaPosiciones = [0, 1, 3, 4, 6, 7, 8, 9];
-
-// ✅ Los guiones (posición 3 y 6) siempre están "puestos"
-tarjetas[2].classList.add('azul');
-tarjetas[5].classList.add('azul');
-
-function actualizarTarjeta(indexInput) {
-  const tarjetaIndex = mapaPosiciones[indexInput];
-  const algunoConValor = filas.some(fila => fila[indexInput] && fila[indexInput].value !== '');
-
-  if (algunoConValor) {
-    tarjetas[tarjetaIndex].classList.add('azul');
+      speechSynthesis.speak(utterance);
+      btnLeer.textContent = '⏸️ Detener';
+    });
   } else {
-    tarjetas[tarjetaIndex].classList.remove('azul');
+    console.warn('No se encontró #btnLeer o .pregunta en el HTML');
   }
-}
 
-filas.forEach((fila) => {
-  fila.forEach((input, index) => {
+  // ===== TU CÓDIGO DE LOS INPUTS DE FECHA =====
+  const tarjetas = document.querySelectorAll('#card-posicion span');
 
-    input.addEventListener('input', (e) => {
-      e.target.value = e.target.value.replace(/[^0-9]/g, '');
+  const filas = [
+    document.querySelectorAll('#fecha-nacimiento .digito'),
+    document.querySelectorAll('#fecha-hoy .digito')
+  ];
 
-      actualizarTarjeta(index);
+  const mapaPosiciones = [0, 1, 3, 4, 6, 7, 8, 9];
 
-      if (e.target.value !== '' && input.nextElementSibling) {
-        const siguiente = input.nextElementSibling;
-        if (siguiente.tagName === 'INPUT') siguiente.focus();
-      }
+  if (tarjetas.length) {
+    tarjetas[2].classList.add('azul');
+    tarjetas[5].classList.add('azul');
+  }
+
+  function actualizarTarjeta(indexInput) {
+    const tarjetaIndex = mapaPosiciones[indexInput];
+    const algunoConValor = filas.some(fila => fila[indexInput] && fila[indexInput].value !== '');
+
+    if (algunoConValor) {
+      tarjetas[tarjetaIndex].classList.add('azul');
+    } else {
+      tarjetas[tarjetaIndex].classList.remove('azul');
+    }
+  }
+
+  filas.forEach((fila) => {
+    fila.forEach((input, index) => {
+
+      input.addEventListener('input', (e) => {
+        e.target.value = e.target.value.replace(/[^0-9]/g, '');
+
+        actualizarTarjeta(index);
+
+        if (e.target.value !== '' && input.nextElementSibling) {
+          const siguiente = input.nextElementSibling;
+          if (siguiente.tagName === 'INPUT') siguiente.focus();
+        }
+      });
+
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Backspace' && e.target.value === '' && input.previousElementSibling) {
+          const anterior = input.previousElementSibling;
+          if (anterior.tagName === 'INPUT') anterior.focus();
+        }
+      });
+
     });
-
-    input.addEventListener('keydown', (e) => {
-      if (e.key === 'Backspace' && e.target.value === '' && input.previousElementSibling) {
-        const anterior = input.previousElementSibling;
-        if (anterior.tagName === 'INPUT') anterior.focus();
-      }
-    });
-
   });
+
 });
