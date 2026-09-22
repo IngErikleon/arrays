@@ -172,14 +172,55 @@
     <p>año &lt;- SubCadena(fecha, 7, 10) &nbsp; // <span id="com-anio-hoy">"????"</span></p>
 </div>
 
-    <p class="algoritmoTitulo">Algoritmo CalculadorEdad</p>
+    <p class="algoritmoTitulo">Implementando "for" en pseudocodigo</p>
 
     <div class="vistasub">
-      <p>Definir fechaNacimiento, fechaActual Como Cadena</p>
-      <p>Definir diaNac, mesNac, añoNac Como Entero</p>
-      <p>Definir diasEnMes Como Entero</p>
-      <p>Definir edad Como Entero</p>
-      <p>Definir fechaValidad Como Logico</p>
+      <p>//Extraer dia (posiciones 1 a 2)</p>
+      <p>textoDia &lt;- " "<br>Para i &lt; - 1 Hasta 2 Con Paso 1 Hacer <br> textoDia &lt;-textoDia + Sudcadena(fechaNacimiento, i) <br>FinPara</p><br>
+       <p>//Extraer mes (posiciones 4 a 5)</p>
+      <p>textoMes &lt;- " "<br>Para i &lt; - 4 Hasta 5 Con Paso 1 Hacer <br> textoMes &lt;-textoMes + Sudcadena(fechaNacimiento, i) <br>FinPara</p><br>
+      <p>//Extraer mes (posiciones 7 a 10)</p>
+      <p>textoAño &lt;- " "<br>Para i &lt; - 7 Hasta 10 Con Paso 1 Hacer <br> textoAño &lt;-textoAño + Sudcadena(fechaNacimiento, i) <br>FinPara</p><br>
+      
+    </div>
+        <p class="algoritmoTitulo">Convertir Texto a Numero</p>
+    <div class="vistasub">
+      
+      <p>diaNac &lt;- ConvertirANumero(textoDia)</p>
+      <p>mesNac &lt;- ConvertirANumero(textoMes)</p>
+      <p>añoNac &lt;- ConvertirANumero(textoAño)</p>
+      
+    </div>
+    <p class="algoritmoTitulo">Validar Mes y Año</p>
+    <div class="vistasub">
+      
+      <p>&nbsp;&nbsp;&nbsp;fechaValida &lt;- Verdadero</p><br>
+      <p>&nbsp;&nbsp;Si mesNac&lt; 1 O mesNac> 12  &nbsp; entonces</p>
+      <p>&nbsp;&nbsp;&nbsp;fechaValida &lt;-Falso</p>
+      <p>&nbsp;&nbsp;FinSi</p>
+      <br>
+       <p>&nbsp;&nbsp;Si añoNac&lt;=1900  &nbsp; entonces</p>
+      <p>&nbsp;&nbsp;&nbsp;fechaValida &lt;-Falso</p>
+      <p>&nbsp;&nbsp;FinSi</p>
+    </div>
+    <p class="algoritmoTitulo">Validar día según el mes <br>&nbsp;&nbsp;&nbsp;(29 de Febrero= invalido, simplificación) </p>
+    <div class="vistasub">
+      
+      <p>&nbsp;&nbsp;&nbsp;Si fechaValida  &nbsp;&nbsp; Entonces</p>
+      <p>&nbsp;&nbsp;&nbsp; Si mesNac=1 O mesNac=3 O mesNac=5 O mesNac=7 O mesNac=8 O mesNac=10 O mesNac=12</p>
+        <p>&nbsp;&nbsp;&nbsp;Entonces  &nbsp;&nbsp; </p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;diaEnMes &lt;-31</p>
+      <p>&nbsp;&nbsp;&nbsp;SiNo  &nbsp;&nbsp; </p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Si mesNac=4 O mesNac=6 O mesNac=9 O mesNac=11</p>
+      <p>&nbsp;&nbsp;&nbsp;Entonces  &nbsp;&nbsp; </p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;diaEnMes &lt;-30</p>
+      <p>&nbsp;&nbsp;&nbsp;SiNo  &nbsp;&nbsp; </p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;diaEnMes &lt;-28</p>
+      <p>&nbsp;&nbsp;&nbsp;FinSi  &nbsp;&nbsp; </p>
+      <p>&nbsp;&nbsp;FinSi  &nbsp;&nbsp; </p><br>
+      <p>&nbsp;&nbsp;&nbsp;Si diaNac&lt;1 O diaNac> diasenMes  &nbsp;&nbsp; Entonces</p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;fechaValida &lt;-Falso</p>
+      <p>&nbsp;&nbsp;&nbsp;FinSi  &nbsp;&nbsp; </p>
     </div>
   </article>
 
