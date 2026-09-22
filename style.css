@@ -266,24 +266,27 @@ body {
   font-size: 14px;
   padding: 0 2px;
 }/*hasta a qui*/
+
 /* ============================================ */
-/* CARD DEL ALGORITMO (nuevo, no toca lo demás) */
+/* CARD DEL ALGORITMO */
 /* ============================================ */
 .card-algoritmo {
-  background: #F9F6F0;
-  padding: 30px;
-  border-radius: 20px;
-  max-width: 800px;
-  width: 100%;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background: #F9F6F0 !important;      /* ✅ fuerza el color hueso */
+  padding: 30px !important;
+  border-radius: 20px !important;
+  max-width: 800px !important;         /* ✅ igual que las otras */
+  width: 100% !important;              /* ✅ CLAVE: ocupa todo hasta 800px */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
   font-size: 14px;
   font-family: "Comic Neue", system-ui;
   margin-top: 10px;
   display: flex;
   flex-direction: column;
   gap: 15px;
+  box-sizing: border-box;              /* ✅ el padding no agranda el ancho */
 }
 
+/* Bloques internos: vista, subvista */
 .card-algoritmo .vista,
 .card-algoritmo .subvista {
   background: rgba(255, 255, 255, 0.5);
@@ -301,6 +304,7 @@ body {
   color: #1a1a1a;
 }
 
+/* Título */
 .card-algoritmo .titulo-algoritmo {
   text-align: center;
   font-size: 15px;
@@ -310,4 +314,4 @@ body {
   padding: 8px;
   background: #d1e7dd;
   border-radius: 8px;
-}/*final ultimo*/
+}/*ultimo final*/
